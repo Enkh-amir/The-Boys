@@ -2,7 +2,7 @@ import Login from "./components/login/Login";
 
 export default function Home() {
   return (
-    <div>
+    <div className="w-full">
       <Login />
     </div>
   );
