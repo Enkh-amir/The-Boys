@@ -1,11 +1,10 @@
-import { Icon } from "../svg";
+import Icon from "../svg/Icon";
 
 const LoginPage = () => {
   return (
-    <main>
-      <div>
-        <Icon />
-      </div>
+    <main className="">
+      <div className=""></div>
+      <Icon />
     </main>
   );
 };
