@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 
 const port = 8111;
 const server = express();
-server.use(bodyParser.text());
+server.use(bodyParser.json());
 
 server.get("/", (request, response) => {
   response.send("hello world");
