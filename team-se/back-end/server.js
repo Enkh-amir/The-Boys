@@ -22,11 +22,16 @@
 
 import express from "express";
 import bodyParser from "body-parser";
-const port = 9999;
+const port = 3000;
 const app = express();
 app.use(bodyParser.json());
 app.get("/", (request, response) => {
   response.send("hi get tanii huselt");
+});
+
+app.use((req, res) => {
+  res.status(404);
+  res.send(`<h1>Error 404!</h1>`);
 });
 
 app.post("/", (request, response) => {
