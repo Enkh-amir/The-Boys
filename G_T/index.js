@@ -1,1 +1,1 @@
-console.log("gerlee tuvshuu");
+console.log("tuvshuu");
