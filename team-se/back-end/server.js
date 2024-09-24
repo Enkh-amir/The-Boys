@@ -34,7 +34,7 @@ app.use((req, res) => {
   res.send(`<h1>Error 404!</h1>`);
 });
 
-app.post("/", (request, response) => {
+app.post("/register", (request, response) => {
   console.log(request.body);
   response.send(`hi post tanii huselt`);
 });
