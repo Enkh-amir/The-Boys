@@ -1,0 +1,19 @@
+{
+  "name": "team-se",
+  "version": "1.0.0",
+  "description": "",
+  "main": "eserver.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.0",
+    "nodemon": "^3.1.7"
+  }
+}
