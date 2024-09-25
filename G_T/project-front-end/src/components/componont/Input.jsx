@@ -4,7 +4,7 @@ export const Input = ({ placeholder, type }) => {
       <input
         type={type}
         placeholder={placeholder}
-        className="bg-[#F3F4F6] w-full outline-none"
+        className="bg-[#F3F4F6] w-full outline-none text-black"
       />
     </div>
   );

@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { ButtonBlue, Input } from "../../components/componont";
 import Icon from "../../components/svg/Icon";
 
@@ -6,7 +7,7 @@ const SigninPage = () => {
   return (
     <main className="">
       <div className="grid grid-cols-2 h-screen">
-        <div className=" inline-flex pl-[222px] justify-start items-center gap-[126px]">
+        <div className=" inline-flex pl-[222px] justify-start items-center gap-[60px]">
           <div className="flex flex-col justify-center items-center gap-10 ">
             <div className="flex items-center justify-center ">
               <Icon />
@@ -30,9 +31,11 @@ const SigninPage = () => {
               <button>
                 <p>Don't have account </p>
               </button>
-              <button>
-                <p className="text-blue-500 px-3">Sign Up</p>
-              </button>
+              <Link href={"/"}>
+                <button>
+                  <p className="text-blue-500 px-3">Log In</p>
+                </button>
+              </Link>
             </div>
           </div>
         </div>
