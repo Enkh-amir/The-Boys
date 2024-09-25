@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { ButtonBlue, Input } from "../../components/componont";
 import Icon from "../../components/svg/Icon";
 
@@ -30,9 +31,11 @@ const SigninPage = () => {
               <button>
                 <p>Don't have account </p>
               </button>
-              <button>
-                <p className="text-blue-500 px-3">Sign Up</p>
-              </button>
+              <Link href={"/"}>
+                <button>
+                  <p className="text-blue-500 px-3">Sign Up</p>
+                </button>
+              </Link>
             </div>
           </div>
         </div>
