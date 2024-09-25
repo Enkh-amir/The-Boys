@@ -1,9 +1,35 @@
 "use client";
+
 import Link from "next/link";
 import { ButtonBlue, Input } from "../componont";
 import Icon from "../svg/Icon";
 
 const LoginPage = () => {
+  const BACKEND_ENDPOINT = "http://localhost:8000/sign-in";
+  const handleOnSubmit = async (event) => {
+    event.preventDefault();
+
+    const userData = {
+      name: event.target.name.value,
+      password: event.target.password.value,
+    };
+
+    console.log(userData);
+
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    };
+
+    const response = await fetch(BACKEND_ENDPOINT, options);
+    const data = await response.json();
+
+    console.log(data);
+  };
+
   return (
     <main className="">
       <div className="grid grid-cols-2 h-screen">
@@ -20,11 +46,21 @@ const LoginPage = () => {
                 Welcome back, Please enter your details
               </p>
             </div>
-            <div className="flex flex-col gap-4 w-full">
-              <Input placeholder={"Email"} />
-              <Input type={"password"} placeholder={"Password"} />
+
+            <form
+              action=""
+              onSubmit={handleOnSubmit}
+              className="flex flex-col gap-4 w-full"
+            >
+              <Input placeholder={"Email"} name={"name"} />
+              <Input
+                type={"password"}
+                placeholder={"Password"}
+                name={"password"}
+              />
               <ButtonBlue text={"Login"} />
-            </div>
+            </form>
+
             <div className="flex items-center justify-center">
               <button>
                 <p>Don't have account </p>
