@@ -1,4 +1,5 @@
-import Login from "./components/login/Login";
+import Login from "../components/login/Login";
+import SignUp from "./sign-up/page";
 
 export default function Home() {
   return (
