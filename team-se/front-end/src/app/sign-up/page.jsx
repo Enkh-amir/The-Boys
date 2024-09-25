@@ -1,7 +1,33 @@
+"use client";
+
 import Link from "next/link";
 import LoginLogo from "../../components/login/LoginLogo";
 
 const SignUp = () => {
+  const BACKEND_ENDPOINT = "http://localhost:8000/sign-up";
+
+  const handleOnSubmit = async (event) => {
+    event.preventDefault();
+
+    const userData = {
+      name: event.target.name.value,
+      password: event.target.password.value,
+      email: event.target.email.value,
+    };
+
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    };
+
+    const response = await fetch(BACKEND_ENDPOINT, options);
+    const data = await response.json();
+    console.log(data);
+  };
+
   return (
     <div className="w-full flex justify-center h-screen">
       <div className="w-[50%] flex justify-center items-center">
@@ -20,18 +46,21 @@ const SignUp = () => {
               </p>
             </div>
           </div>
-          <div className="flex flex-col gap-4">
+          <form onSubmit={handleOnSubmit} className="flex flex-col gap-4">
             <input
               type="name"
+              name="name"
               placeholder="Name"
               className="input w-full border bg-[#F3F4F6] rounded-lg h-[48px] pl-5"
             />
             <input
+              name="email"
               type="email"
               placeholder="E-mail"
               className="input w-full border bg-[#F3F4F6] rounded-lg h-[48px] pl-5"
             />
             <input
+              name="password"
               type="password"
               placeholder="Password"
               className="input w-full border bg-[#F3F4F6] rounded-lg h-[48px] pl-5"
@@ -50,7 +79,7 @@ const SignUp = () => {
                 <button className="text-[#0166FF]">Log in</button>
               </Link>
             </div>
-          </div>
+          </form>
         </div>
       </div>
       <div className="w-[50%] bg-[#0166FF]"></div>
