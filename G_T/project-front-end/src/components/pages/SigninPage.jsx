@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ButtonBlue, Input } from "../componont";
 import Icon from "../svg/Icon";
 
-const LoginPage = () => {
+const SigninPage = () => {
   return (
     <main className="">
       <div className="grid grid-cols-2 h-screen">
@@ -13,25 +13,27 @@ const LoginPage = () => {
               <Icon />
             </div>
             <div className="flex text-center flex-col gap-2">
-              <p className="text-2xl font-bold not-italic text-[#0f172a] font-roboto">
-                Welcome Back
+              <p className="text-2xl font-bold not-italic text-[#0f172a] font-roboto ">
+                Create Geld account
               </p>
               <p className="font-normal text-base not-italic text-[#334155] font-roboto">
-                Welcome back, Please enter your details
+                Sign up below to create your Wallet account
               </p>
             </div>
             <div className="flex flex-col gap-4 w-full">
+              <Input placeholder={"Name"} />
               <Input placeholder={"Email"} />
               <Input type={"password"} placeholder={"Password"} />
+              <Input type={"password"} placeholder={"Re-password"} />
               <ButtonBlue text={"Login"} />
             </div>
             <div className="flex items-center justify-center">
               <button>
                 <p className="font-roboto">Don't have account </p>
               </button>
-              <Link href={"/signinpage"}>
+              <Link href={"/"}>
                 <button>
-                  <p className="text-blue-500 px-3 font-roboto ">Sign Up</p>
+                  <p className="text-blue-500 px-3 font-roboto">Log In</p>
                 </button>
               </Link>
             </div>
@@ -42,4 +44,5 @@ const LoginPage = () => {
     </main>
   );
 };
-export default LoginPage;
+
+export default SigninPage;
