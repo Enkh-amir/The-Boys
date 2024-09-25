@@ -1,9 +1,35 @@
 "use client";
+
 import Link from "next/link";
 import { ButtonBlue, Input } from "../../components/componont";
 import Icon from "../../components/svg/Icon";
 
 const SigninPage = () => {
+  const BACKEND_ENDPOINT = "http://localhost:8000/sign-up";
+
+  const handleOnSubmit = async (event) => {
+    const userData = {
+      name: event.target.name.value,
+      password: event.target.password.value,
+      email: event.target.password.value,
+    };
+
+    console.log(userData);
+
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    };
+
+    const response = await fetch(BACKEND_ENDPOINT, options);
+    const data = await response.json();
+
+    console.log(data);
+  };
+
   return (
     <main className="">
       <div className="grid grid-cols-2 h-screen">
@@ -20,13 +46,21 @@ const SigninPage = () => {
                 Sign up below to create your Wallet account
               </p>
             </div>
-            <div className="flex flex-col gap-4 w-full">
-              <Input placeholder={"Name"} />
-              <Input placeholder={"Email"} />
-              <Input type={"password"} placeholder={"Password"} />
+            <form
+              action=""
+              onSubmit={handleOnSubmit}
+              className="flex flex-col gap-4 w-full"
+            >
+              <Input placeholder={"Name"} name={"name"} />
+              <Input placeholder={"Email"} name={"email"} />
+              <Input
+                type={"password"}
+                placeholder={"Password"}
+                name={"password"}
+              />
               <Input type={"password"} placeholder={"Re-password"} />
-              <ButtonBlue text={"Login"} />
-            </div>
+              <ButtonBlue text={"Sign up"} />
+            </form>
             <div className="flex items-center justify-center">
               <button>
                 <p>Don't have account </p>
