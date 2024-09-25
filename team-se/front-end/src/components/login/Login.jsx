@@ -3,7 +3,7 @@ import Link from "next/link";
 import LoginLogo from "./LoginLogo";
 
 const Login = () => {
-  const BACKEND_ENDPOINT = "http://localhost:8000/sign-in";
+  const BACKEND_ENDPOINT = "http://localhost:8000/";
 
   const handleOnSubmit = async (event) => {
     event.preventDefault();
@@ -23,6 +23,7 @@ const Login = () => {
 
     const response = await fetch(BACKEND_ENDPOINT, options);
     const data = await response.json();
+    console.log(data);
   };
 
   return (
@@ -43,11 +44,13 @@ const Login = () => {
           </div>
           <form onSubmit={handleOnSubmit} className="flex flex-col gap-4">
             <input
-              type="email"
-              placeholder="E-mail"
+              name="name"
+              type="text"
+              placeholder="User Name"
               className="input w-full border bg-[#F3F4F6] rounded-lg h-[48px] pl-5"
             />
             <input
+              name="password"
               type="password"
               placeholder="Password"
               className="input w-full border bg-[#F3F4F6] rounded-lg h-[48px] pl-5"
