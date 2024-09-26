@@ -4,7 +4,7 @@ import Link from "next/link";
 import LoginLogo from "../../components/login/LoginLogo";
 
 const SignUp = () => {
-  const BACKEND_ENDPOINT = "http://localhost:8000/sign-up";
+  const BACKEND_ENDPOINT = "https://the-boys-14.onrender.com/sign-up";
 
   const handleOnSubmit = async (event) => {
     event.preventDefault();
