@@ -5,7 +5,7 @@ import { ButtonBlue, Input } from "../../components/componont";
 import Icon from "../../components/svg/Icon";
 
 const SingUpPage = () => {
-  const BACKEND_ENDPOINT = "http://localhost:8000/sign-up";
+  const BACKEND_ENDPOINT = "https://the-boys-euia.onrender.com/sign-up";
 
   const handleOnSubmit = async (event) => {
     const userData = {
