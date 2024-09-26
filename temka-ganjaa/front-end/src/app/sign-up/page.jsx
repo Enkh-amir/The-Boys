@@ -1,8 +1,31 @@
+"use client";
 import Link from "next/link";
 import { Geld } from "../components/svg/Geld";
 import { Logo } from "../components/svg/Logo";
 
 const SignUp = () => {
+  const BACKEND_ENDPOINT = " http://localhost:8000/sign-up";
+
+  const handleOnSubmit = async (event) => {
+    event.preventDefault();
+
+    const userData = {
+      name: event.target.name.value,
+      password: event.target.password.value,
+      email: event.target.email.value,
+    };
+
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    };
+
+    const response = await fetch(BACKEND_ENDPOINT, options);
+    const data = await response.json();
+  };
   return (
     <div className="w-full h-screen flex justify-between">
       <div className="w-[50%] h-full flex justify-center items-center">

@@ -3,25 +3,27 @@ import { Geld } from "../components/svg/Geld";
 import { Logo } from "../components/svg/Logo";
 
 const SignIn = () => {
-  // const handleOnSubmit = async (event) => {
-  //   event.preventDefault();
+  const BACKEND_ENDPOINT = " http://localhost:8000";
 
-  //   const userData = {
-  //     name: event.target.name.value,
-  //     password: event.target.password.value,
-  //   };
+  const handleOnSubmit = async (event) => {
+    event.preventDefault();
 
-  //   const options = {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(userData),
-  //   };
+    const userData = {
+      name: event.target.name.value,
+      password: event.target.password.value,
+    };
 
-  //   const response = await fetch(BACKEND_ENDPOINT, options);
-  //   const data = await response.json();
-  // };
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    };
+
+    const response = await fetch(BACKEND_ENDPOINT, options);
+    const data = await response.json();
+  };
 
   return (
     <div className="w-full h-screen flex justify-between">
@@ -40,7 +42,7 @@ const SignIn = () => {
             </p>
           </div>
           <form
-            // onSubmit={handleOnSubmit}
+            onSubmit={handleOnSubmit}
             className="flex flex-col gap-4 w-full"
           >
             <input
