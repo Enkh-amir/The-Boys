@@ -10,6 +10,10 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get("/", (request, response) => {
+  response.send("tanii get huselt");
+});
+
 app.post("/", (request, response) => {
   const { name, password } = request.body;
   fs.readFile("./data/user.json", "utf-8", (readError, data) => {
