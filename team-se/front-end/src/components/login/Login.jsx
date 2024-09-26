@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 const Login = () => {
   const [data, setData] = useState(true);
   const [error, setError] = useState(null);
-  const BACKEND_ENDPOINT = "http://localhost:8000/";
+  const BACKEND_ENDPOINT = "https://the-boys-14.onrender.com/";
 
   const handleOnSubmit = async (event) => {
     event.preventDefault();
