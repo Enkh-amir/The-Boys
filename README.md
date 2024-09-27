@@ -1,3 +1,0 @@
-# The-Boys
-
-amjilt zaluusaa

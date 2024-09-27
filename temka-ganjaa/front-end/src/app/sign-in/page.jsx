@@ -1,9 +1,10 @@
+"use client";
 import Link from "next/link";
 import { Geld } from "../components/svg/Geld";
 import { Logo } from "../components/svg/Logo";
 
 const SignIn = () => {
-  const BACKEND_ENDPOINT = " http://localhost:8000";
+  const BACKEND_ENDPOINT = " http://localhost:8000/sign-in";
 
   const handleOnSubmit = async (event) => {
     event.preventDefault();
@@ -11,6 +12,7 @@ const SignIn = () => {
     const userData = {
       name: event.target.name.value,
       password: event.target.password.value,
+      email: event.target.email.value,
     };
 
     const options = {
