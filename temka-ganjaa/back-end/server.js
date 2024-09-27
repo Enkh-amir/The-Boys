@@ -1,6 +1,7 @@
 import bodyParser from "body-parser";
 import cors from "cors";
 import express from "express";
+import fs from "fs";
 import { error } from "console";
 
 const port = 8000;
@@ -11,9 +12,10 @@ app.use(cors());
 app.get("/", (request, response) => {
   response.send("hey tanii huselt irle");
 });
-app.post("/sign-up", (request, response) => {
+app.post("/", (request, response) => {
   const { name, password } = request.body;
-  fs.readFile("/data/user/.json", "utf-8", (readFile, data) => {
+
+  fs.readFile("/data/users/.json", "utf-8", (readFile, data) => {
     if (readFile) {
       response.json({
         success: false,
@@ -35,15 +37,16 @@ app.post("/sign-up", (request, response) => {
       });
     }
   });
+  console.log(request.body);
 });
 app.post("/sign-up", (request, response) => {
   const { name, email, password } = request.body;
-  fs.readFile("./data/user.json", "utf-8", (readError, data) => {
+  fs.readFile("./data/users.json", "utf-8", (readError, data) => {
     let saveData = data ? JSON.parse(data) : [];
     if (readError) {
       response.json({
         success: false,
-        error: error,
+        error: readError.message,
       });
     }
     console.log(data);
@@ -54,7 +57,7 @@ app.post("/sign-up", (request, response) => {
       password: password,
     };
     saveData.push(newUser);
-    fs.writeFile("./data/user.json", JSON, stringify(saveData), (error) => {
+    fs.writeFile("./data/users.json", JSON.stringify(saveData), (error) => {
       if (error) {
         response.json({
           success: false,
