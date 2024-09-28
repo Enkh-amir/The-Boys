@@ -1,5 +1,3 @@
-import { AddIcon } from "../svg";
-
 const Header = () => {
   return (
     <main className="bg-[#F4F4F4]">

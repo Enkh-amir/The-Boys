@@ -3,7 +3,7 @@ import Main from "../parts/Main";
 
 const HomePage = () => {
   return (
-    <main>
+    <main className="">
       <Header />
       <Main />
     </main>
