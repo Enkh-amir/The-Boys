@@ -1,5 +1,5 @@
 import { CloseIcon } from "../svg/CloseIcon";
-
+//  
 export const Create = () => {
   return (
     <div className="w-[587px] z-[1] border border-gray-300 bg-white rounded-2xl absolute">
