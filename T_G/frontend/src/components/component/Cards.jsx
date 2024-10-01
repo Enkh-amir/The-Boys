@@ -1,9 +1,9 @@
 "use client";
 
 import { DeleteIcon, EditIcon } from "../svg";
-import { Inputs, Options } from "../component";
+import { Inputs, Options } from ".";
 
-export const Cards = () => {
+export const Cards = ({ product }) => {
   return (
     <div className="max-w-[320px] border p-4 rounded-xl flex flex-col gap-1">
       <div className="flex justify-between">
@@ -53,20 +53,20 @@ export const Cards = () => {
       <div className="flex gap-1 items-center text-[#393939]">
         Барааны нэр :
         <p className="font-semibold not-italic text-base text-[#393939]">
-          Цагаан цамц{" "}
+          {product.tags}
         </p>
       </div>
       <div className="flex gap-1 items-center text-[#393939]">
         Барааны ангилал :
         <p className="font-semibold not-italic text-base text-[#393939]">
-          цамц{" "}
+          {product.value}
         </p>{" "}
       </div>
       <div className="flex gap-1 items-center text-[#393939]">
         Үнэ :{" "}
         <p className="font-semibold not-italic text-base text-[#393939]">
           {" "}
-          50.000{" "}
+          {product.price}
         </p>
       </div>
     </div>

@@ -1,11 +1,34 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Inputs, Options } from "../component";
 
 import { Cards } from "../component";
 
 const Main = () => {
-  const handleOnSubmit = (event) => {
+  const BACKEND_ENDPOINT = "http://localhost:8010";
+  const [products, setProducts] = useState([]);
+
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch(BACKEND_ENDPOINT);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const data = await response.json();
+      setProducts(data);
+    } catch (error) {
+      console.error("Failed to fetch products:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  console.log(products);
+
+  const handleOnSubmit = async (event) => {
     event.preventDefault();
 
     const dataBase = {
@@ -15,7 +38,19 @@ const Main = () => {
     };
 
     console.log(dataBase);
+
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(dataBase),
+    };
+
+    const response = await fetch(BACKEND_ENDPOINT, options);
+    const data = await response.json();
   };
+
   return (
     <main>
       <main className="">
@@ -91,15 +126,9 @@ const Main = () => {
                 </dialog>
               </div>
               <div className="grid grid-cols-4 gap-8">
-                <Cards />
-                <Cards />
-                <Cards />
-                <Cards />
-                <Cards />
-                <Cards />
-                <Cards />
-                <Cards />
-                <Cards />
+                {products?.map((product) => {
+                  <Cards key={product.id} product={product} />;
+                })}
               </div>
             </div>
           </div>
