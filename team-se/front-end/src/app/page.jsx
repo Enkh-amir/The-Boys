@@ -1,3 +1,4 @@
+import Header from "@/components/dashboard/Header/Header";
 import Login from "../components/login/Login";
 import SignUp from "./sign-up/page";
 
