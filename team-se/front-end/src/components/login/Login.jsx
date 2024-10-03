@@ -23,6 +23,7 @@ const Login = () => {
       },
       body: JSON.stringify(userData),
     };
+
     try {
       const response = await fetch(BACKEND_ENDPOINT, options);
       const result = await response.json();
@@ -32,8 +33,6 @@ const Login = () => {
       setError("Login failed. Please try again.");
       console.error(err);
     }
-    // const response = await fetch(BACKEND_ENDPOINT, options);
-    // const result = await response.json();
   };
 
   return (
